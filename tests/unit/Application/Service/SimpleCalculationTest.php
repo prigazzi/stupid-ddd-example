@@ -28,4 +28,26 @@ class SimpleCalculationTest extends \PHPUnit\Framework\TestCase
         $this->assertInternalType('integer', $result);
         $this->assertSame(6, $result);
     }
+
+    /**
+     * @dataProvider validMultiplicationDataProvider
+     */
+    public function testThatMultiplyTwoNumbersWork($number1, $number2, $expected)
+    {
+        $result = $this->service->multiplyTwoNumbers($number1, $number2);
+
+        $this->assertInternalType('integer', $result);
+        $this->assertSame($expected, $result);
+    }
+
+    public function validMultiplicationDataProvider()
+    {
+        return [
+            [1, 1, 1],
+            [3, 0, 0],
+            [3, 5, 15],
+            [-3, 2, -6],
+            [5, -2, -10]
+        ];
+    }
 }

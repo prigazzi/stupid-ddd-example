@@ -40,4 +40,11 @@ class NumberTest extends \PHPUnit\Framework\TestCase
             [null]
         ];
     }
+
+    public function testThatCheckingIfItsNegativeWorks()
+    {
+        $this->assertTrue((new Number(-20))->isNegative());
+        $this->assertFalse((new Number(100))->isNegative());
+        $this->assertFalse((new Number(0))->isNegative());
+    }
 }

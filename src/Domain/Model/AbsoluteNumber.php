@@ -8,4 +8,9 @@ class AbsoluteNumber extends Number
     {
         parent::__construct(abs($value));
     }
+
+    public static function fromNumber(Number $number)
+    {
+        return new self($number->value());
+    }
 }

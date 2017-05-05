@@ -18,4 +18,9 @@ class Number
     {
         return $this->value;
     }
+
+    public function isNegative() : bool
+    {
+        return $this->value !== abs($this->value);
+    }
 }
